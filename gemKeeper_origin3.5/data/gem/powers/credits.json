@@ -1,0 +1,22 @@
+{
+	"type":"origins:simple",
+	"name":"Credits",
+	"description": "- §lMoya_§r -> Main developer\n- §lVexxen§r -> Invisible armor stand's code\n- §lXipherZen§r -> Main playtester",
+	"badges": [
+		{
+			"type":"origins:tooltip",
+			"sprite":"origins:textures/gui/badge/star.png",
+			"text": "Moya_#6762"
+		},
+		{
+			"type":"origins:tooltip",
+			"sprite":"origins:textures/gui/badge/star.png",
+			"text": "Vexxen#0725"
+		},
+		{
+			"type":"origins:tooltip",
+			"sprite":"origins:textures/gui/badge/star.png",
+			"text": "XipherZen#1979"
+		}
+	]
+}

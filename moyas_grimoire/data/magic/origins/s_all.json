@@ -1,0 +1,11 @@
+{
+	"powers": [
+		"magic:s_all",
+		"magic:_requirement"
+	],
+	"icon": "origins:orb_of_origin",
+	"order": 10,
+	"impact": 1,
+	"name": "Omnia",
+	"description": "You gain the ability to cast a random spell once."
+}

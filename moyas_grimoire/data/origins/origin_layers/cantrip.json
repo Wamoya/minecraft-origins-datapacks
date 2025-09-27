@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "order": 3,
+  "name":"Cantrip",
+  "origins": [
+    "magic:c_glow",
+    "magic:c_horn",
+    "magic:c_craft",
+    "magic:c_creeper",
+    "magic:c_inventory",
+    "magic:c_water",
+
+    "magic:c_none"
+  ]
+}

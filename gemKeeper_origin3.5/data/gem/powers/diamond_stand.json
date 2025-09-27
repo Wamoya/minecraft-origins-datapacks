@@ -1,0 +1,81 @@
+{
+	"type":"origins:action_on_callback",
+	"entity_action_added": {
+		"type":"origins:and",
+		"actions": [
+			{
+				"type":"origins:area_of_effect",
+				"bientity_action": {
+					"type":"origins:target_action",
+					"action": {
+						"type":"origins:and",
+						"actions": [
+							{
+								"type":"origins:apply_effect",
+								"effects": [
+									{
+										"effect": "minecraft:glowing",
+										"amplifier": 0,
+										"duration": 160,
+										"is_ambient": false,
+										"show_icon": false,
+										"show_particles": false
+									},
+									{
+										"effect": "minecraft:blindness",
+										"amplifier": 0,
+										"duration": 50,
+										"is_ambient": false,
+										"show_icon": false,
+										"show_particles": false
+									},
+									{
+										"effect": "minecraft:weakness",
+										"amplifier": 0,
+										"duration": 100,
+										"is_ambient": false,
+										"show_icon": false,
+										"show_particles": false
+									}
+								]
+							},
+							{
+								"type":"origins:set_on_fire",
+								"duration": 8
+							}
+						]
+					}
+				},
+				"radius": 8,
+				"bientity_condition": {
+					"type":"origins:target_condition",
+					"condition": {
+						"type":"origins:origin",
+						"origin": "gem:gemkeeper",
+						"layer": "origins:origin",
+						"inverted": true
+					}
+				}
+			},
+			{
+				"type":"origins:execute_command",
+				"command":"particle minecraft:end_rod ~ ~1.5 ~ .5 .5 .5 .1 50 force",
+				"permission_level":4
+			},
+			{
+				"type":"origins:play_sound",
+				"sound": "minecraft:block.amethyst_block.place",
+				"volume": 1
+			},
+			{
+				"type":"origins:delay",
+				"ticks": 20,
+				"action": {
+					"type":"origins:execute_command",
+					"command": "power remove @s gem:diamond_stand",
+					"permission_level":4
+				}
+			}
+		]
+	}
+}

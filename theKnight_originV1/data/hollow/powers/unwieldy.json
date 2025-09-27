@@ -1,0 +1,29 @@
+{
+	"name": "Unwieldy",
+	"description": "You can't use shields, bows or crossbows.",
+	"type": "origins:prevent_item_use",
+	"item_condition": {
+		"type": "origins:or",
+		"conditions": [
+			{
+				"type": "origins:ingredient",
+				"ingredient": {
+					"item": "minecraft:shield"
+				}
+			},
+			{
+				"type": "origins:ingredient",
+				"ingredient": {
+					"item": "minecraft:bow"
+				}
+			},
+			{
+				"type": "origins:ingredient",
+				"ingredient": {
+					"item": "minecraft:crossbow"
+				}
+			}
+		]
+	}
+
+}

@@ -1,0 +1,51 @@
+{
+	"name": "Flashbang",
+	"description": "Hitting an entity with redstone will deal more damage and blind it.",
+	"type": "origins:modify_damage_dealt",
+	"target_action":{
+		"type":"origins:and",
+		"actions":[
+			{
+				"type":"origins:apply_effect",
+				"effect": {
+					"effect": "minecraft:blindness",
+					"amplifier": 0,
+					"duration": 40,
+					"show_icon": false,
+					"show_particles": false
+				}
+			},
+			{
+				"type":"origins:execute_command",
+				"command": "particle minecraft:flash ~ ~ ~ .1 .1 .1 .1 1 force",
+				"permission_level":4
+			},
+			{
+				"type":"origins:play_sound",
+				"sound": "minecraft:block.amethyst_block.place"
+			}
+		]
+	},
+	"self_action": {
+		"type":"origins:execute_command",
+		"command": "clear @s minecraft:redstone 1",
+		"permission_level":4
+	},
+	"bientity_condition": {
+		"type":"origins:actor_condition",
+		"condition": {
+			"type":"origins:equipped_item",
+			"equipment_slot": "mainhand",
+			"item_condition": {
+				"type":"origins:ingredient",
+				"ingredient":{
+					"item":"minecraft:redstone"
+				}
+			}
+		}
+	},
+	"modifier": {
+		"operation": "multiply_total",
+		"value": 2
+	}
+}

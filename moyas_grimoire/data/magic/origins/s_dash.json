@@ -1,0 +1,11 @@
+{
+	"powers": [
+		"magic:s_dash",
+		"magic:_cost"
+	],
+	"icon": "minecraft:rabbit_foot",
+	"order": 10,
+	"impact": 1,
+	"name": "Incitus",
+	"description": "You quicly propel yorself forward."
+}

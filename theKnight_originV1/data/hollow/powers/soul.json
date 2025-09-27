@@ -1,0 +1,157 @@
+{
+	"name": "[Secondary] Soul magic",
+	"description": "You can use souls to repair your shell or casting spells.",
+	"type": "origins:multiple",
+	"souls": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 4,
+		"hud_render": {
+			"sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+			"bar_index": 0
+		},
+		"start_value": 3
+	},
+	"resource_up": {
+		"type": "origins:self_action_on_hit",
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "*:*_souls",
+			"change": 1
+		},
+		"damage_condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:amount",
+					"comparison": ">=",
+					"compare_to": 7
+				},
+				{
+					"type": "origins:name",
+					"name": "magic",
+					"inverted": true
+				}
+			]
+		}
+	},
+	"heal": {
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:heal",
+					"amount": 2
+				},
+				{
+					"type": "origins:play_sound",
+					"sound": "minecraft:block.beacon.activate"
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "*:*_souls",
+					"change": -1
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "particle minecraft:cloud ~ ~ ~ .25 .7 .25 0.1 10 force"
+				}
+			]
+		},
+		"cooldown": 30,
+		"key": {
+			"key": "key.origins.secondary_active",
+			"continuous": true
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:sneaking"
+				},
+				{
+					"type": "origins:resource",
+					"resource": "*:*_souls",
+					"comparison": ">",
+					"compare_to": 0
+				}
+			]
+		}
+	},
+	"spirit": {
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:raycast",
+					"distance": 64,
+					"bientity_action": {
+						"type": "origins:damage",
+						"amount": 8,
+						"source": {
+							"name": "magic",
+							"bypasses_armor": true,
+							"magic": true
+						}
+					},
+					"before_action": {
+						"type": "origins:play_sound",
+						"sound": "minecraft:entity.wither.ambient"
+					},
+					"command_along_ray": "particle minecraft:cloud ~ ~ ~ .1 .1 .1 0.1 20 force"
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "*:*_souls",
+					"change": -1
+				}
+			]
+		},
+		"cooldown": 30,
+		"key": {
+			"key": "key.origins.secondary_active"
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:sneaking",
+					"inverted": true
+				},
+				{
+					"type": "origins:resource",
+					"resource": "*:*_souls",
+					"comparison": ">",
+					"compare_to": 0
+				}
+			]
+		}
+	},
+	"during": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:apply_effect",
+					"effect": {
+						"effect": "minecraft:slowness",
+						"duration": 5,
+						"amplifier": 4,
+						"show_particles": false,
+						"show_icon": false
+					}
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "particle minecraft:enchant ~ ~ ~ .25 .7 .25 0.1 10 force"
+				}
+			]
+		},
+		"condition": {
+			"type": "origins:sneaking"
+		}
+	}
+}

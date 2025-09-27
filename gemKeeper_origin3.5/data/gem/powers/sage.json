@@ -1,0 +1,20 @@
+{
+	"name": "Sage",
+	"description": "You can exploit the weaknesses of those who have been §omarked.",
+	"type": "origins:modify_damage_dealt",
+	"badges": [
+		{
+			"type": "origins:tooltip",
+			"sprite": "origins:textures/gui/badge/info.png",
+			"text": "Marked = With the glowing effect."
+		}
+	],
+	"target_condition": {
+		"type": "origins:status_effect",
+		"effect": "minecraft:glowing"
+	},
+	"modifier": {
+		"operation": "multiply_total_multiplicative",
+		"value": 0.5
+	}
+}

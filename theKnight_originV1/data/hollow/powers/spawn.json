@@ -1,0 +1,7 @@
+{
+	"name": "Hallownest",
+	"description": "You start the game at an underground ancient city.",
+	"type": "origins:modify_player_spawn",
+	"dimension": "minecraft:overworld",
+	"structure": "minecraft:ancient_city"
+}

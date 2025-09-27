@@ -1,0 +1,51 @@
+{
+	"name": "Fish lover",
+	"description": "You can only eat fish (and golden food). Also, you start with a fishing rod.",
+	"type": "origins:multiple",
+	"fish_and_gold": {
+		"type": "origins:prevent_item_use",
+		"item_condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:food"
+				},
+				{
+					"type": "origins:ingredient",
+					"ingredient": {
+						"tag": "minecraft:fishes"
+					},
+					"inverted": true
+				},
+				{
+					"type": "origins:ingredient",
+					"ingredient": {
+						"item": "minecraft:golden_apple"
+					},
+					"inverted": true
+				},
+				{
+					"type": "origins:ingredient",
+					"ingredient": {
+						"item": "minecraft:golden_carrot"
+					},
+					"inverted": true
+				},
+				{
+					"type": "origins:ingredient",
+					"ingredient": {
+						"item": "minecraft:enchanted_golden_apple"
+					},
+					"inverted": true
+				}
+			]
+		}
+	},
+	"fishing_rod": {
+		"type": "origins:action_on_callback",
+		"entity_action_chosen": {
+			"type": "origins:execute_command",
+			"command": "give @s minecraft:fishing_rod"
+		}
+	}
+}

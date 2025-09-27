@@ -1,0 +1,11 @@
+{
+	"name": "No shield",
+	"description": "Just don't put yourself in danger, ok?",
+	"type": "origins:prevent_item_use",
+        "item_condition": {
+            "type": "origins:ingredient",
+			"ingredient": {
+				"item": "shield"
+			}
+		}
+}

@@ -1,0 +1,94 @@
+{
+	"type": "origins:multiple",
+	"name": "Metronome",
+	"description": "You always hear a §360bpm§r metronome.",
+	"badges": [
+		{
+			"type": "origins:tooltip",
+			"sprite": "origins:textures/gui/badge/toggle.png",
+			"text": "§oToggle with§r [Sneak + Tab]"
+		}
+	],
+	"resource": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 20,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+			"bar_index": 13,
+			"condition": {
+				"type": "origins:resource",
+				"resource": "*:*_toggle_resource",
+				"comparison": "==",
+				"compare_to": 1
+			}
+		},
+		"max_action": {
+			"type": "origins:execute_command",
+			"command": "function music:beat",
+			"permission_level": 4
+		}
+	},
+	"res_up": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "*:*_resource",
+			"change": 1
+		},
+		"interval": 1,
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:*_toggle_resource",
+			"comparison": "==",
+			"compare_to": 1
+		}
+	},
+	"toggle_resource": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"start_value": 1,
+		"hud_render": {"should_render": false},
+		"min_action": {
+			"type": "origins:change_resource",
+			"resource": "*:streak_resource",
+			"change": 0,
+			"operation": "set"
+		},
+		"max_action": {
+			"type": "origins:change_resource",
+			"resource": "*:*_resource",
+			"change": 0,
+			"operation": "set"
+		}
+	},
+	"toggle_active": {
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:if_else",
+			"condition": {
+				"type": "origins:resource",
+				"resource": "*:*_toggle_resource",
+				"comparison": "==",
+				"compare_to": 0
+			},
+			"if_action": {
+				"type": "origins:change_resource",
+				"resource": "*:*_toggle_resource",
+				"change": 1,
+				"operation": "set"
+			},
+			"else_action": {
+				"type": "origins:change_resource",
+				"resource": "*:*_toggle_resource",
+				"change": 0,
+				"operation": "set"
+			}
+		},
+		"cooldown": 20,
+		"key": {"key": "key.playerlist"},
+		"condition": {"type": "origins:sneaking"}
+	}
+}

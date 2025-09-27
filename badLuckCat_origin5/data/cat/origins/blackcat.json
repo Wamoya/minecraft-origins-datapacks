@@ -1,0 +1,28 @@
+{
+	"powers": [
+		"cat:shadow",
+		"cat:magic_missile",
+		"cat:inventory",
+		"cat:cloud_step",
+		"cat:archer",
+		"cat:spectral_damage",
+		"cat:growing_power",
+		"cat:pehkui",
+		"cat:veil",
+		"cat:team_cat",
+		"cat:fish_lover",
+		"cat:knowledge",
+		"cat:effects",
+		"cat:no_shield",
+		"cat:nine_lives",
+		"cat:cursed",
+		"origins:scare_creepers",
+		"cat:cheat_death",
+		"cat:meow"
+	],
+	"icon": "minecraft:ender_eye",
+	"order": 10,
+	"impact": 2,
+	"name": "Bad luck",
+	"description": "You are a symbol of bad luck, more exactly, a black cat. A solitary being that uses dark magic while still being cute ^^"
+}

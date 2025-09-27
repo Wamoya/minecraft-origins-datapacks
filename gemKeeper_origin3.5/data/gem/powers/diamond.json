@@ -1,0 +1,41 @@
+{
+	"type": "origins:multiple",
+	"active":{
+		"type":"origins:active_self",
+		"entity_action": {
+			"type":"origins:execute_command",
+			"command": "execute at @s as @e[tag=follow] if score @p follow_link = @s follow_link run power grant @s gem:diamond_stand",
+			"permission_level":4
+		},
+		"cooldown":60,
+		"hud_render":{
+			"sprite_location":"origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+			"bar_index": 8
+		}
+	},
+	"armor":{
+		"type":"origins:attribute",
+		"modifier": {
+			"attribute": "minecraft:generic.armor",
+			"operation": "addition",
+			"value": 4
+		}
+	},
+	"thorns":{
+		"type":"origins:modify_damage_taken",
+		"bientity_action": {
+			"type":"origins:actor_action",
+			"action": {
+				"type":"origins:damage",
+				"amount": 3,
+				"source": {
+					"name":"thorns",
+					"bypasses_armor": true
+				}
+			}
+		},
+		"damage_condition": {
+			"type":"origins:attacker"
+		}
+	}
+}

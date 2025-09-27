@@ -1,0 +1,11 @@
+{
+	"powers": [
+		"magic:s_rocket",
+		"magic:_cost"
+	],
+	"icon": "minecraft:fire_charge",
+	"order": 10,
+	"impact": 1,
+	"name": "Fireball",
+	"description": "You summon a fireball in front of you. Punch it to send it forward."
+}

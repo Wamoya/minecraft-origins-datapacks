@@ -1,0 +1,10 @@
+{
+	"powers": [
+		"magic:g_spy"
+	],
+	"icon": "minecraft:soul_campfire",
+	"order": 10,
+	"impact": 1,
+	"name": "Secrecy",
+	"description": "Nobody can see what you are wearing."
+}

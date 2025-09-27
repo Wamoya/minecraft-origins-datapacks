@@ -1,0 +1,49 @@
+{
+	"name": "No need for food",
+	"description": "You don't need to eat to recover yourself.",
+	"type": "origins:multiple",
+	"disable_regen": {
+		"type": "origins:disable_regen"
+	},
+	"disable_exhaustion": {
+		"type": "origins:action_over_time",
+		"interval": 20,
+		"entity_action": {
+			"type": "origins:feed",
+			"food": 1,
+			"saturation": 1
+		}
+	},
+	"disable_eating": {
+		"type": "origins:prevent_item_use",
+		"item_condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:food"
+				},
+				{
+					"type": "origins:ingredient",
+					"ingredient": {
+						"item": "minecraft:chorus_fruit"
+					},
+					"inverted": true
+				},
+				{
+					"type": "origins:ingredient",
+					"ingredient": {
+						"item": "minecraft:golden_apple"
+					},
+					"inverted": true
+				},
+				{
+					"type": "origins:ingredient",
+					"ingredient": {
+						"item": "minecraft:enchanted_golden_apple"
+					},
+					"inverted": true
+				}
+			]
+		}
+	}
+}

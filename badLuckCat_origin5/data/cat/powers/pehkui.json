@@ -1,0 +1,19 @@
+{
+	"name": "Short",
+	"description": "You are shorter than a normal player.",
+	"type": "origins:multiple",
+	"height": {
+		"type": "origins:action_on_callback",
+		"entity_action_added": {
+			"type": "origins:execute_command",
+			"command": "scale set pehkui:height .75 @s"
+		}
+	},
+	"width": {
+		"type": "origins:action_on_callback",
+		"entity_action_added": {
+			"type": "origins:execute_command",
+			"command": "scale set pehkui:width 0.75 @s"
+		}
+	}
+}

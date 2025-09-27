@@ -1,0 +1,10 @@
+{
+	"powers": [
+		"magic:g_plague"
+	],
+	"icon": "minecraft:rotten_flesh",
+	"order": 10,
+	"impact": 1,
+	"name": "Plague",
+	"description": "You become immune to the poison and hunger effects."
+}

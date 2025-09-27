@@ -1,0 +1,17 @@
+{
+	"name": "Credits",
+	"description": "100% coded by me, Hat1_06. But I would never have had the idea and motivation to do it without somnia's origins jam.",
+	"type": "origins:simple",
+	"badges": [
+		{
+			"type":"origins:tooltip",
+			"sprite":"origins:textures/gui/badge/star.png",
+			"text": "Hat1_06#6762"
+		},
+		{
+			"type":"origins:tooltip",
+			"sprite":"origins:textures/gui/badge/star.png",
+			"text": "somnia ✦#3934"
+		}
+	]
+}

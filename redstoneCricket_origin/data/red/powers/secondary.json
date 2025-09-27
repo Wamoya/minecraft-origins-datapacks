@@ -1,0 +1,46 @@
+{
+	"name": "Synthetic redstone",
+	"description": "You can consume hunger while under direct sunlight to synthesize redstone dust.",
+	"type": "origins:active_self",
+	"badges": [
+		{
+			"type":"origins:keybind",
+			"sprite":"origins:textures/gui/badge/active.png",
+			"text": "Press %s while under direct sunlight."
+		}
+	],
+	"entity_action": {
+		"type":"origins:and",
+		"actions": [
+			{
+				"type":"origins:exhaust",
+				"amount": 25
+			},
+			{
+				"type":"origins:execute_command",
+				"command": "give @s minecraft:redstone",
+				"permission_level":4
+			}
+		]
+	},
+	"key":{
+		"key": "key.origins.secondary_active"
+	},
+	"condition": {
+		"type":"origins:and",
+		"conditions":[
+			{
+				"type":"origins:exposed_to_sun"
+			},
+			{
+				"type":"origins:food_level",
+				"comparison": ">=",
+				"compare_to": 5
+			}
+		]
+	},
+	"cooldown": 10,
+	"hud_render": {
+		"should_render": true
+	}
+}

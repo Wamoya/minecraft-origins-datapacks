@@ -1,0 +1,13 @@
+{
+	"name": "Underground inhabitant",
+	"description": "You don't like being under direct sunlight.",
+	"type": "origins:action_over_time",
+	"interval": 10,
+	"entity_action": {
+		"type": "origins:execute_command",
+		"command": "effect give @s minecraft:blindness 2 0 true"
+	},
+	"condition": {
+		"type": "origins:exposed_to_sun"
+	}
+}

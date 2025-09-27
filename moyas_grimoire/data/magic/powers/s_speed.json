@@ -1,0 +1,36 @@
+{
+    "hidden":true,
+    "type":"origins:multiple",
+    "active":{
+        "type":"origins:active_self",
+        "entity_action": {
+            "type":"origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "power grant @s magic:s_speed2"
+                },
+                {
+                    "type":"origins:play_sound",
+                    "sound": "minecraft:block.beacon.deactivate"
+                },
+                {
+                    "type":"origins:execute_command",
+                    "command": "xp add @s -1 levels"
+                }
+            ]
+        },
+        "cooldown":200,
+        "hud_render":{
+            "should_render":true,
+            "sprite_location":"origins:textures/gui/community/huang/resource_bar_01.png",
+            "bar_index":20
+        },
+        "key":{"key":"key.origins.secondary_active"},
+        "condition": {
+            "type":"origins:xp_levels",
+            "comparison": ">=",
+            "compare_to": 1
+        }
+    }
+}

@@ -1,0 +1,8 @@
+{
+	"name": "Void",
+	"description": "Due to being made of void, you are pitch black.",
+	"type": "origins:model_color",
+	"red": 0,
+	"green": 0,
+	"blue": 0
+}

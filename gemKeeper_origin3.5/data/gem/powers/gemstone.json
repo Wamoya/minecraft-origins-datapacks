@@ -1,0 +1,119 @@
+{
+	"hidden":true,
+	"type": "origins:multiple",
+	"spawn": {
+		"type":"origins:action_on_callback",
+		"entity_action_added": {
+			"type": "origins:execute_command",
+			"command": "function gem:spawn",
+			"permission_level": 4
+		},
+		"entity_action_removed":{
+			"type":"origins:execute_command",
+			"command":"execute at @s as @e[tag=follow] if score @p follow_link = @s follow_link at @s run kill @s",
+			"permission_level": 4
+		}
+	},
+	"loop": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "function gem:loop",
+			"permission_level": 4
+		}
+	},
+	"overworld_bool":{
+		"type":"origins:resource",
+		"min":0,
+		"max":1,
+		"hud_render": {"should_render": false},
+		"max_action": {
+			"type":"origins:and",
+			"actions":[
+				{
+					"type":"origins:execute_command",
+					"command":"execute at @s as @e[tag=follow] if score @p follow_link = @s follow_link at @s run kill @s",
+					"permission_level": 4
+				},
+				{
+					"type":"origins:delay",
+					"ticks":60,
+					"action":{
+						"type":"origins:execute_command",
+						"command":"function gem:spawn",
+						"permission_level": 4
+					}
+				}
+			]
+		},
+		"min_action": {
+			"type":"origins:and",
+			"actions":[
+				{
+					"type":"origins:execute_command",
+					"command":"execute at @s as @e[tag=follow] if score @p follow_link = @s follow_link at @s run kill @s",
+					"permission_level": 4
+				},
+				{
+					"type":"origins:delay",
+					"ticks":60,
+					"action":{
+						"type":"origins:execute_command",
+						"command":"function gem:spawn",
+						"permission_level": 4
+					}
+				}
+			]
+		}
+	},
+	"overworld_exit":{
+		"type":"origins:action_over_time",
+		"interval": 1,
+		"entity_action":{
+			"type":"origins:change_resource",
+			"resource":"*:*_overworld_bool",
+			"change":-1
+		},
+		"condition":{
+			"type":"origins:and",
+			"conditions": [
+				{
+					"type":"origins:resource",
+					"resource": "*:*_overworld_bool",
+					"comparison":"==",
+					"compare_to": 1
+				},
+				{
+					"type":"origins:dimension",
+					"dimension":"minecraft:overworld",
+					"inverted":true
+				}
+			]
+		}
+	},
+	"overworld_enter":{
+		"type":"origins:action_over_time",
+		"interval": 1,
+		"entity_action":{
+			"type":"origins:change_resource",
+			"resource":"*:*_overworld_bool",
+			"change":1
+		},
+		"condition":{
+			"type":"origins:and",
+			"conditions": [
+				{
+					"type":"origins:resource",
+					"resource": "*:*_overworld_bool",
+					"comparison":"==",
+					"compare_to": 0
+				},
+				{
+					"type":"origins:dimension",
+					"dimension":"minecraft:overworld"
+				}
+			]
+		}
+	}
+}

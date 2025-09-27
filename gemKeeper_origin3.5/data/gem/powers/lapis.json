@@ -1,0 +1,71 @@
+{
+	"type": "origins:multiple",
+	"active":{
+		"type":"origins:active_self",
+		"entity_action": {
+			"type":"origins:execute_command",
+			"command": "execute at @s as @e[tag=follow] if score @p follow_link = @s follow_link run power grant @s gem:lapis_stand",
+			"permission_level": 4
+		},
+		"cooldown":60,
+		"hud_render":{
+			"sprite_location":"origins:textures/gui/community/huang/resource_bar_02.png",
+			"bar_index": 17
+		}
+	},
+	"xp_boost":{
+		"type":"origins:modify_xp_gain",
+		"modifier": {
+			"operation": "multiply_total",
+			"value": 1
+		}
+	},
+	"heal":{
+		"type":"origins:action_over_time",
+		"interval": 20,
+		"entity_action": {
+			"type":"origins:and",
+			"actions": [
+				{
+					"type":"origins:heal",
+					"amount": 2
+				},
+				{
+					"type":"origins:execute_command",
+					"command":"particle minecraft:end_rod ~ ~1 ~ .5 .5 .5 .1 50 force",
+					"permission_level": 4
+				},
+				{
+					"type":"origins:play_sound",
+					"sound": "minecraft:block.amethyst_block.place",
+					"volume": 1
+				},
+				{
+					"type":"origins:add_xp",
+					"levels": -1
+				}
+			]
+		},
+		"condition": {
+			"type":"origins:and",
+			"conditions":[
+				{
+					"type":"origins:health",
+					"comparison":"<=",
+					"compare_to": 14
+				},
+				{
+					"type":"origins:xp_levels",
+					"comparison":">",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:resource",
+					"resource": "*:lapistoggle_resource",
+					"comparison": "==",
+					"compare_to": 1
+				}
+			]
+		}
+	}
+}

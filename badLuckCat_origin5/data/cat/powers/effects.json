@@ -1,0 +1,21 @@
+{
+	"name": "Unlucky but fast.",
+	"description": "You move faster but find worse loot. Entities around you also get the bad luck effect.",
+	"type": "origins:multiple",
+	"unluck_aura": {
+		"type": "origins:action_over_time",
+		"interval": 10,
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "effect give @e[distance=..9] minecraft:unluck 1 2 true"
+		}
+	},
+	"speed": {
+		"type": "origins:action_over_time",
+		"interval": 10,
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "effect give @s minecraft:speed 1 0 true"
+		}
+	}
+}

@@ -1,0 +1,10 @@
+{
+	"powers": [
+		"magic:g_sage"
+	],
+	"icon": "minecraft:sunflower",
+	"order": 10,
+	"impact": 1,
+	"name": "Light",
+	"description": "You deal more damage to glowing entities."
+}

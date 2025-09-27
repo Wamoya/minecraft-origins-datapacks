@@ -1,0 +1,10 @@
+{
+	"powers": [
+		"magic:g_armor"
+	],
+	"icon": "minecraft:iron_helmet",
+	"order": 10,
+	"impact": 1,
+	"name": "Abjuration",
+	"description": "You ward yourself with shimmering magical energy."
+}

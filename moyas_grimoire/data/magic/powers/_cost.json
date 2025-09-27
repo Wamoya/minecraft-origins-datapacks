@@ -1,0 +1,6 @@
+{
+    "hidden":false,
+    "type":"origins:simple",
+    "name":"Cost",
+    "description": "You need at least 1 xp level (which is consumed) to cast this spell."
+}

@@ -1,0 +1,11 @@
+{
+	"powers": [
+		"magic:s_missile",
+		"magic:_cost"
+	],
+	"icon": "minecraft:spectral_arrow",
+	"order": 10,
+	"impact": 1,
+	"name": "Magic missile",
+	"description": "You send a dart of force streaking toward a creature that you can see."
+}

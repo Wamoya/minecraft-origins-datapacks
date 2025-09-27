@@ -1,0 +1,26 @@
+{
+	"name": "Lumafly Lantern",
+	"description": "Crystal lantern containing a Lumafly. Brightens dark caverns so wanderers can find their way.",
+	"type": "origins:multiple",
+	"lantern": {
+		"type": "origins:action_on_callback",
+		"entity_action_chosen": {
+			"type": "origins:execute_command",
+			"command": "give @s minecraft:lantern"
+		}
+	},
+	"darkness": {
+		"type": "origins:effect_immunity",
+		"effect": "minecraft:darkness",
+		"condition": {
+			"type": "origins:equipped_item",
+			"equipment_slot": "offhand",
+			"item_condition": {
+				"type": "origins:ingredient",
+				"ingredient": {
+					"item": "minecraft:lantern"
+				}
+			}
+		}
+	}
+}

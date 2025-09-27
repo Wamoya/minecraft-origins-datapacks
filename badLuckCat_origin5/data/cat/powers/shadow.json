@@ -1,0 +1,107 @@
+{
+	"name": "[Primary] Shadow travel",
+	"description": "You can become a shadow for 3s. Though it's harder while under direct sunlight.",
+	"type": "origins:multiple",
+	"spectator": {
+		"type": "origins:active_self",
+		"entity_action": {
+				"type": "origins:and",
+				"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "gamemode spectator @s"
+				},
+				{
+					"type": "origins:delay",
+					"ticks": 60,
+					"action": {
+						"type": "origins:execute_command",
+						"command": "gamemode survival @s"
+					}
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:block.portal.trigger player @a[distance=..9]"
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:exposed_to_sun"
+					},
+					"if_action": {
+						"type": "origins:execute_command",
+						"command": "xp add @s -1 levels"
+					}
+				}
+				]
+		},
+		"cooldown": 200,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+			"bar_index": 9
+		},
+		"key": {
+			"key": "key.origins.primary_active",
+			"continuous": true
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+			{
+				"type": "origins:xp_levels",
+				"comparison": ">=",
+				"compare_to": 5
+			},
+			{
+				"type": "origins:on_fire",
+				"inverted": true
+			}
+			]
+		}
+	},
+	"blind": {
+		"type": "origins:action_over_time",
+		"interval": 10,
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "effect give @e[distance=1..2] minecraft:blindness 3 0 true"
+		},
+		"condition": {
+			"type": "origins:gamemode",
+			"gamemode": "spectator"
+		}
+	},
+	"shader": {		
+		"type": "origins:shader",
+		"shader": "minecraft:shaders/post/sobel.json",
+		"condition": {
+			"type": "origins:gamemode",
+			"gamemode": "spectator"
+		}
+	},
+	"particles_smoke": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "particle minecraft:smoke ~ ~ ~ 0.2 0.2 0.2 0.1 20 force"
+		},
+		"interval": 2,
+		"condition": {
+			"type": "origins:gamemode",
+			"gamemode": "spectator"
+		}
+	},
+	"particles_portal": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "particle minecraft:portal ~ ~ ~ 0.5 0.5 0.5 0.1 10 force"
+		},
+		"interval": 2,
+		"condition": {
+			"type": "origins:gamemode",
+			"gamemode": "spectator"
+		}
+	}
+}

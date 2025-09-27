@@ -1,0 +1,11 @@
+{
+	"powers": [
+		"magic:s_speed",
+		"magic:_cost"
+	],
+	"icon": "minecraft:sugar",
+	"order": 10,
+	"impact": 1,
+	"name": "Celero",
+	"description": "Speed up yourself so you can attack or move more often."
+}

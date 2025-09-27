@@ -1,0 +1,49 @@
+{
+	"hidden": true,
+	"type": "origins:multiple",
+	"resource": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"hud_render": {"should_render": false},
+		"min_action": {
+			"type":"origins:play_sound",
+			"sound": "minecraft:block.beacon.activate",
+			"volume": 1
+		},
+		"max_action": {
+			"type":"origins:play_sound",
+			"sound": "minecraft:block.glass.break",
+			"volume": 1
+		}
+	},
+	"effects":{
+		"type":"origins:action_over_time",
+		"interval":10,
+		"entity_action": {
+			"type": "origins:apply_effect",
+			"effects": [
+				{
+					"effect": "minecraft:blindness",
+					"amplifier": 0,
+					"duration": 40,
+					"show_icon": false,
+					"show_particles": false
+				},
+				{
+					"effect": "minecraft:weakness",
+					"amplifier": 0,
+					"duration": 20,
+					"show_icon": false,
+					"show_particles": false
+				}
+			]
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:*_resource",
+			"comparison": "==",
+			"compare_to": 1
+		}
+	}
+}

@@ -1,0 +1,22 @@
+{
+	"powers": [
+		"gem:current",
+		"gem:desc",
+		"gem:inventory",
+		"gem:sage",
+		"gem:light",
+		"gem:fragile",
+		"gem:unwieldy",
+		"gem:credits",
+		"gem:reset",
+
+		"gem:lapistoggle",
+		"gem:tired",
+		"gem:gemstone"
+	],
+	"icon": "minecraft:amethyst_shard",
+	"order": 10,
+	"impact": 2,
+	"name": "Gem keeper",
+	"description": "You attune yourself to different gems making use of an underestimated but powerful resource, §esunlight§r."
+}

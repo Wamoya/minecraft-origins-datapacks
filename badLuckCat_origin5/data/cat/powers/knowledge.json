@@ -1,0 +1,15 @@
+{
+	"name": "Thirst for knowledge",
+	"description": "Literally!",
+	"type": "origins:action_over_time",
+	"interval": 10,
+	"entity_action": {
+		"type": "origins:execute_command",
+		"command": "effect give @s minecraft:hunger 1 1 true"
+	},
+	"condition": {
+		"type": "origins:xp_levels",
+		"comparison": "<",
+		"compare_to": 10
+	}
+}

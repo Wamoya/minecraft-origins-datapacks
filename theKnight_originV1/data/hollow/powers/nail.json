@@ -1,0 +1,84 @@
+{
+	"name": "Nail",
+	"description": "You start with your preffered weapon.",
+	"type": "origins:multiple",
+	"spawn": {
+		"type": "origins:action_on_callback",
+		"entity_action_chosen": {
+			"type": "origins:execute_command",
+			"command": "give @s minecraft:iron_sword"
+		}
+	},
+	"combat_ground": {
+		"type": "origins:modify_damage_dealt",
+		"bientity_action": {
+			"type": "origins:add_velocity",
+			"z": 0.5,
+			"set": true
+		},
+		"self_action": {
+			"type": "origins:add_velocity",
+			"z": -0.5,
+			"space": "local"
+		},
+		"modifier": {
+			"operation": "add_base_early",
+			"value": 3
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:equipped_item",
+					"equipment_slot": "mainhand",
+					"item_condition": {
+						"type": "origins:ingredient",
+						"ingredient": {
+							"tag": "c:swords"
+						}
+					}
+				},
+				{
+					"type": "origins:on_block"
+				}
+			]
+		}
+	},
+	"combat_air": {
+		"type": "origins:modify_damage_dealt",
+		"bientity_action": {
+			"type": "origins:add_velocity",
+			"z": 0.5,
+			"set": true
+		},
+		"self_action": {
+			"type": "origins:add_velocity",
+			"z": -0.5,
+			"set": true,
+			"space": "local"
+		},
+		"modifier": {
+			"operation": "add_base_early",
+			"value": 3
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:equipped_item",
+					"equipment_slot": "mainhand",
+					"item_condition": {
+						"type": "origins:ingredient",
+						"ingredient": {
+							"tag": "c:swords"
+						}
+					}
+				},
+				{
+					"type": "origins:on_block",
+					"inverted": true
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,51 @@
+{
+	"type": "origins:multiple",
+	"active":{
+		"type":"origins:active_self",
+		"entity_action": {
+			"type":"origins:raycast",
+			"distance":15,
+			"entity":false,
+			"shape_type": "collider",
+			"fluid_handling": "none",
+			"command_along_ray": "execute as @e[tag=follow] if score @p follow_link = @s follow_link run tp @s ^ ^-1 ^",
+			"before_action": {
+				"type":"origins:delay",
+				"ticks":10,
+				"action":{
+					"type":"origins:execute_command",
+					"command": "execute at @s as @e[tag=follow] if score @p follow_link = @s follow_link run power grant @s gem:emerald_stand",
+					"permission_level":4
+				}
+			}
+		},
+		"cooldown":60,
+		"hud_render":{
+			"sprite_location":"origins:textures/gui/community/huang/resource_bar_01.png",
+			"bar_index": 24
+		}
+	},
+	"effects":{
+		"type":"origins:action_over_time",
+		"interval":10,
+		"entity_action": {
+			"type": "origins:apply_effect",
+			"effects": [
+				{
+					"effect": "minecraft:haste",
+					"amplifier": 0,
+					"duration": 20,
+					"show_icon": false,
+					"show_particles": false
+				},
+				{
+					"effect": "minecraft:hero_of_the_village",
+					"amplifier": 0,
+					"duration": 20,
+					"show_icon": false,
+					"show_particles": false
+				}
+			]
+		}
+	}
+}

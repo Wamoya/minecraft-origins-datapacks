@@ -1,0 +1,11 @@
+{
+	"powers": [
+		"magic:s_boom",
+		"magic:_cost"
+	],
+	"icon": "minecraft:tnt",
+	"order": 10,
+	"impact": 1,
+	"name": "Annihilate",
+	"description": "Invoke a explosion that will damage nearby entities."
+}

@@ -1,0 +1,11 @@
+{
+	"name": "Team cat",
+	"description": "Cats won't run away from.",
+	"type": "origins:action_over_time",
+	"entity_action": {
+		"type": "origins:execute_command",
+		"command": "execute as @s run function cat:team_cat",
+		"permission_level": 4
+	},
+	"interval": 20
+}

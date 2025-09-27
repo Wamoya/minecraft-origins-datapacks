@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "order": 2,
+  "name":"Spell",
+  "origins": [
+    "magic:s_speed",
+    "magic:s_rocket",
+    "magic:s_dash",
+    "magic:s_missile",
+    "magic:s_all",
+    "magic:s_boom",
+
+    "magic:s_none"
+  ]
+}

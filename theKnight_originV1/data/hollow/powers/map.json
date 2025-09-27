@@ -1,0 +1,39 @@
+{
+	"hidden": true,
+	"type": "origins:multiple",
+	"spawn": {
+		"type": "origins:action_on_callback",
+		"entity_action_chosen": {
+			"type": "origins:execute_command",
+			"command": "give @s minecraft:map"
+		}
+	},
+	"glow": {
+		"type": "origins:entity_glow",
+		"entity_condition": {
+			"type": "origins:sneaking",
+			"inverted": true
+		},
+		"bientity_condition": {
+			"type": "origins:actor_condition",
+			"condition": {
+				"type": "origins:and",
+				"conditions": [
+					{
+						"type": "origins:equipped_item",
+						"equipment_slot": "mainhand",
+						"item_condition": {
+							"type": "origins:ingredient",
+							"ingredient": {
+								"item": "minecraft:filled_map"
+							}
+						}
+					},
+					{
+						"type": "origins:sneaking"
+					}
+				]
+			}
+		}
+	}
+}

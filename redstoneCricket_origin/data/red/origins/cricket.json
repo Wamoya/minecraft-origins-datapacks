@@ -1,0 +1,20 @@
+{
+	"powers": [
+		"red:primary",
+		"red:secondary",
+		"red:flash",
+		"red:feed",
+		"red:note",
+		"red:jump",
+		"red:cosmetics",
+		"red:fragile",
+		"red:unwieldy",
+		"red:credits",
+		"red:wings"
+	],
+	"icon": "minecraft:redstone",
+	"order": 10,
+	"impact": 2,
+	"name": "Redstone cricket",
+	"description": "A small clockwork cricket powered by redstone."
+}

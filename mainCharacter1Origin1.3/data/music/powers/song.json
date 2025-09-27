@@ -1,0 +1,148 @@
+{
+	"name": "Boosting ballad",
+	"description": "§aBoost §3everyone§3 §3around§r §3you§r with this romantic piece.",
+	"badges": [
+		{
+			"type": "origins:tooltip",
+			"sprite": "origins:textures/gui/badge/info.png",
+			"text": "Keeping the tempo up §3while on 3 streak§r will heal §a§o1 HP§r and apply §a§ohaste§r to every entity within an §n8 block radius."
+		}
+	],
+	"type": "origins:multiple",
+	"resource": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"hud_render": {"should_render": false}
+	},
+	"res_up": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"entity_action": {
+			"type": "origins:if_else",
+			"condition": {
+				"type": "origins:resource",
+				"resource": "*:streak_resource",
+				"comparison": "==",
+				"compare_to": 3
+			},
+			"if_action": {
+				"type": "origins:delay",
+				"ticks": 10,
+				"action": {
+					"type": "origins:change_resource",
+					"resource": "*:*_resource",
+					"change": 1
+				}
+			},
+			"else_action": {
+				"type": "origins:change_resource",
+				"resource": "*:*_resource",
+				"change": -1
+			}
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:metronome_toggle_resource",
+			"comparison": "==",
+			"compare_to": 1
+		}
+	},
+	"active": {
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:if_else",
+			"condition": {
+				"type": "origins:or",
+				"conditions": [
+					{
+						"type": "origins:resource",
+						"resource": "*:metronome_resource",
+						"comparison": "<=",
+						"compare_to": 5
+					},
+					{
+						"type": "origins:resource",
+						"resource": "*:metronome_resource",
+						"comparison": ">=",
+						"compare_to": 15
+					}
+				]
+			},
+			"if_action": {
+				"type": "origins:and",
+				"actions": [
+					{
+						"type": "origins:area_of_effect",
+						"include_target": true,
+						"bientity_action": {
+							"type": "origins:target_action",
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:heal",
+										"amount": 1
+									},
+									{
+										"type": "origins:apply_effect",
+										"effect": {
+											"effect": "minecraft:haste",
+											"amplifier": 0,
+											"duration": 30,
+											"is_ambient": true,
+											"show_icon": true,
+											"show_particles": false
+										}
+									}
+								]
+							}
+						},
+						"radius": 8
+					},
+					{
+						"type": "origins:play_sound",
+						"sound": "minecraft:block.note_block.bell",
+						"volume": 0.5,
+						"pitch": 1.5
+					},
+					{
+						"type": "origins:execute_command",
+						"command": "particle minecraft:note ~ ~ ~ 8 8 8 1 100 force"
+					}
+				]
+			},
+			"else_action": {
+				"type": "origins:execute_command",
+				"command": "function music:failure",
+				"permission_level": 4
+			}
+		},
+		"key": {"key": "key.origins.secondary_active"},
+		"cooldown": 10,
+		"hud_render": {"should_render": false},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "*:metronome_toggle_resource",
+					"comparison": "==",
+					"compare_to": 1
+				},
+				{
+					"type": "origins:resource",
+					"resource": "*:streak_resource",
+					"comparison": "==",
+					"compare_to": 3
+				},
+				{
+					"type": "origins:resource",
+					"resource": "*:*_resource",
+					"comparison": "==",
+					"compare_to": 1
+				}
+			]
+		}
+	}
+}

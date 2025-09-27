@@ -1,0 +1,32 @@
+{
+	"type":"origins:simple",
+	"name":"Gems",
+	"description": "- §dAmethyst§r -> Agile\n- §bDiamond§r -> Brawler\n- §aEmerald§r -> Versatile\n- §9Lapis§r -> Mage\n- §cRedstone§r -> Utility",
+	"badges": [
+		{
+			"type":"origins:tooltip",
+			"sprite":"origins:textures/gui/badge/info.png",
+			"text": "§d# §nPossitives:§r§d Increased movement and attack speeds.\n\n# §nActive:§r§d Hurl your gemstone forwards and then TP yourself to it."
+		},
+		{
+			"type":"origins:tooltip",
+			"sprite":"origins:textures/gui/badge/info.png",
+			"text": "§b# §nPossitives:§r§b Extra armor and passive thorns.\n\n# §nActive:§r§b Burn your foes as well as blinding, weakening and marking them."
+		},
+		{
+			"type":"origins:tooltip",
+			"sprite":"origins:textures/gui/badge/info.png",
+			"text": "§a# §nPossitives:§r§a Better trades and increased mining speed.\n\n# §nActive:§r§a Hurl your gemstone forwards and pull nearby entities to it."
+		},
+		{
+			"type":"origins:tooltip",
+			"sprite":"origins:textures/gui/badge/info.png",
+			"text": "§9# §nPossitives:§r§9 Increased XP gain and automatic XP for HP trade. §o(Toggle with Sneak + Tab)§r§9\n\n# §nActive:§r§9 Make your foes levitate for few seconds and mark them."
+		},
+		{
+			"type":"origins:tooltip",
+			"sprite":"origins:textures/gui/badge/info.png",
+			"text": "§c# §nPossitives:§r§c This gem does not have possitives.\n\n# §nActive:§r§c Activate (or deactivate) nearby buttons, levers, observers, pressure plates..."
+		}
+	]
+}

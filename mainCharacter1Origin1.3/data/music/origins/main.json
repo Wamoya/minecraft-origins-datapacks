@@ -1,0 +1,17 @@
+{
+	"powers": [
+		"music:metronome",
+		"music:streak",
+		"music:effects",
+		"music:freestyle",
+		"music:song",
+		"music:jump",
+		"music:fragile",
+		"music:unwieldy"
+	],
+	"icon": "minecraft:music_disc_13",
+	"order": 10,
+	"impact": 2,
+	"name": "Main character 1",
+	"description": "You play as the main character of a musical."
+}

@@ -1,0 +1,13 @@
+{
+	"name": "Sage",
+	"description": "Your spectral arrows deal more damage.",
+	"type": "origins:modify_projectile_damage",
+    "damage_condition": {
+        "type": "origins:projectile",
+        "projectile": "minecraft:spectral_arrow"
+    },
+    "modifier": {
+        "operation": "addition",
+        "value": 5
+    }
+}

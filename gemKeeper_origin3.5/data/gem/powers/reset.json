@@ -1,0 +1,29 @@
+{
+	"name": "§c§nIMPORTANT",
+	"description": "Use the §9§o/trigger reset§r command to reset your gemstone.",
+	"type": "origins:multiple",
+	"enable": {
+		"type": "origins:action_on_callback",
+		"entity_action_added": {
+			"type": "origins:execute_command",
+			"command": "function gem:reset_setup",
+			"permission_level": 4
+		}
+	},
+	"loop": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "function gem:reset",
+			"permission_level": 4
+		},
+		"interval": 20,
+		"condition": {
+			"type": "origins:command",
+			"command": "execute if score @s reset matches 0",
+			"comparison": "!=",
+			"compare_to": 0,
+			"inverted": true
+		}
+	}
+}

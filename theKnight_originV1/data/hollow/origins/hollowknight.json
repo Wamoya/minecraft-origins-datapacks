@@ -1,0 +1,24 @@
+{
+	"powers": [
+		"hollow:cloak",
+		"hollow:soul",
+		"hollow:pehkui",
+		"hollow:shell",
+		"hollow:void",
+		"hollow:shade",
+		"hollow:nail",
+		"hollow:lantern",
+		"hollow:map",
+		"hollow:unwieldy",
+		"hollow:no_food",
+		"hollow:spawn",
+		"hollow:sun",
+		"hollow:elytra",
+		"hollow:fall_immunity"
+	],
+	"icon": "minecraft:iron_sword",
+	"order": 10,
+	"impact": 3,
+	"name": "The knight",
+	"description": "An enigmatic wanderer who descends into Hallownest carrying only a broken nail to fend off foes."
+}

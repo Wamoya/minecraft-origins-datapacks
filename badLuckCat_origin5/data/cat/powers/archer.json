@@ -1,0 +1,49 @@
+{
+	"name": "Archer",
+	"description": "You move faster while using a bow but also deal less damage with every weapon but bows. (Works with crossbows too)",
+	"type": "origins:multiple",
+	"bow_speed": {
+		"type": "origins:conditioned_attribute",
+		"modifier": {
+			"attribute": "minecraft:generic.movement_speed",
+			"operation": "addition",
+			"value": 0.2
+		},
+		"tick_rate": 1,
+		"condition": {
+			"type": "origins:or",
+			"conditions": [
+			{
+				"type": "origins:using_item",
+				"item_condition": {
+					"type": "origins:ingredient",
+					"ingredient": {
+						"item": "minecraft:bow"
+					}
+				}
+			},
+			{
+				"type": "origins:using_item",
+				"item_condition": {
+					"type": "origins:ingredient",
+					"ingredient": {
+						"item": "minecraft:crossbow"
+					}
+				}
+			}
+			]
+		}
+	},
+	"melee_debuff": {
+		"type": "origins:modify_damage_dealt",
+		"modifier": {
+			"operation": "multiply_base",
+			"value": -0.5
+		},
+		"damage_condition": {
+			"type": "origins:name",
+			"name": "arrow",
+			"inverted": true
+		}
+	}
+}

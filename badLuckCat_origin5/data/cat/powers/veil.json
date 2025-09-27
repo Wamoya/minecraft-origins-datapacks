@@ -1,0 +1,46 @@
+{
+    "name": "Magic veil",
+    "description": "Once you reach certain XP level, you ignore any damage every few seconds.",
+    "type": "origins:multiple",
+    "veil_resource": {
+        "type": "origins:cooldown",
+        "cooldown": 200,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+            "bar_index": 0
+        }
+    },
+    "protection": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -1
+        },
+		"self_action": {
+			"type": "origins:trigger_cooldown",
+			"power": "*:*_veil_resource"
+		},
+        "condition": {
+			"type": "origins:and",
+			"conditions": [
+			{
+				"type": "origins:resource",
+				"resource": "*:*_veil_resource",
+				"comparison": "==",
+				"compare_to": "0"
+			},
+			{
+				"type": "origins:xp_levels",
+				"comparison": ">=",
+				"compare_to": 15
+			},
+			{
+				"type": "origins:xp_levels",
+				"comparison": "<",
+				"compare_to": 30
+			}
+			]
+        }
+    }
+}

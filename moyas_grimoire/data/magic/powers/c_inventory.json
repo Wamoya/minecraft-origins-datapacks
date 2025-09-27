@@ -1,0 +1,22 @@
+{
+    "hidden":true,
+    "type":"origins:multiple",
+    "inventory":{
+        "type":"origins:inventory",
+        "container_type":"hopper",
+        "key":{
+            "key": "key.loadToolbarActivator"
+        },
+        "title": "Fornix"
+    },
+    "sound":{
+        "type":"origins:active_self",
+        "entity_action":{
+            "type":"origins:play_sound",
+            "sound":"minecraft:block.ender_chest.open"
+        },
+        "key": {
+            "key": "key.loadToolbarActivator"
+        }
+    }
+}

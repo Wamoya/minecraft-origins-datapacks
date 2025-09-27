@@ -1,0 +1,14 @@
+{
+	"values": [
+		"minecraft:amethyst_shard",
+		"minecraft:diamond",
+		"minecraft:emerald",
+		"minecraft:lapis_lazuli",
+		"minecraft:redstone",
+		"minecraft:amethyst_block",
+		"minecraft:diamond_block",
+		"minecraft:emerald_block",
+		"minecraft:lapis_block",
+		"minecraft:redstone_block"
+	]
+}

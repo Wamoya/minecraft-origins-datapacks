@@ -1,0 +1,58 @@
+{
+    "hidden":true,
+    "type":"origins:multiple",
+    "resource":{
+        "type":"origins:resource",
+        "min":0,
+        "max":3,
+        "hud_render":{"should_render":false},
+        "max_action": {
+            "type": "origins:execute_command",
+            "command": "power remove @s magic:s_speed2"
+        }
+    },
+    "resource_down":{
+        "type":"origins:action_over_time",
+        "interval":20,
+        "entity_action": {
+            "type":"origins:change_resource",
+            "resource": "*:*_resource",
+            "change": 1
+        }
+    },
+    "effects":{
+        "type":"origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "attribute": "minecraft:generic.movement_speed",
+                "value": 0.5,
+                "operation": "multiply_total"
+            },
+            {
+                "attribute": "minecraft:generic.attack_speed",
+                "value": 0.5,
+                "operation": "multiply_total"
+            }
+        ],
+        "condition": {
+            "type":"origins:resource",
+            "resource": "*:*_resource",
+            "comparison":"<",
+            "compare_to": 5
+        }
+    },
+    "particles":{
+        "type":"origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type":"origins:execute_command",
+            "command":"particle minecraft:enchant ~ ~1 ~ 0.1 0.3 0.1 0.1 20 force"
+        },
+        "condition": {
+            "type":"origins:resource",
+            "resource": "*:*_resource",
+            "comparison":"<",
+            "compare_to": 5
+        }
+    }
+}

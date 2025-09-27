@@ -1,0 +1,138 @@
+{
+	"type": "origins:multiple",
+	"name": "Octave jump",
+	"description": "§3Thrust yourself§r by doubling the pitch.",
+	"badges": [
+		{
+			"type": "origins:keybind",
+			"sprite": "origins:textures/gui/badge/active.png",
+			"text": "[Jump]"
+		},
+		{
+			"type": "origins:tooltip",
+			"sprite": "origins:textures/gui/badge/info.png",
+			"text": "Trade §31 streak point §r§ofor §3an extra jump"
+		}
+	],
+	"active": {
+		"type":"origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:add_velocity",
+					"set": true,
+					"y": 0.5
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:moving"
+					},
+					"if_action": {
+						"type": "origins:add_velocity",
+						"space": "local",
+						"z": 0.3
+					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:resource",
+						"resource": "*:freestyle_resource",
+						"comparison": "==",
+						"compare_to": 0
+					},
+					"if_action": {
+						"type": "origins:change_resource",
+						"resource": "*:streak_resource",
+						"change": -1
+					}
+				},
+				{
+					"type": "origins:choice",
+					"actions": [
+						{
+							"element": {
+								"type": "origins:play_sound",
+								"sound": "minecraft:block.note_block.flute",
+								"volume": 0.5,
+								"pitch": 0.5
+							},
+							"weight": 1
+						},
+						{
+							"element": {
+								"type": "origins:play_sound",
+								"sound": "minecraft:block.note_block.flute",
+								"volume": 0.5,
+								"pitch": 0.75
+							},
+							"weight": 1
+						},
+						{
+							"element": {
+								"type": "origins:play_sound",
+								"sound": "minecraft:block.note_block.flute",
+								"volume": 0.5
+							},
+							"weight": 1
+						},
+						{
+							"element": {
+								"type": "origins:play_sound",
+								"sound": "minecraft:block.note_block.flute",
+								"volume": 0.5,
+								"pitch": 1.25
+							},
+							"weight": 1
+						},
+						{
+							"element": {
+								"type": "origins:play_sound",
+								"sound": "minecraft:block.note_block.flute",
+								"volume": 0.5,
+								"pitch": 1.5
+							},
+							"weight": 1
+						}
+					]
+				},
+				{
+					"type": "origins:play_sound",
+					"sound": "minecraft:block.note_block.flute",
+					"volume": 0.5
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "particle minecraft:note ~ ~ ~ 0.5 1 0.5 1 20 force"
+				}
+			]
+		},
+		"key": {"key": "key.jump"},
+		"cooldown": 10,
+		"hud_render": {"should_render": false},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "*:streak_resource",
+					"comparison": ">",
+					"compare_to": 0
+				},
+				{
+					"type":"origins:on_block",
+					"inverted": true
+				},
+				{
+					"type": "origins:in_block",
+					"block_condition": {
+						"type": "origins:fluid",
+						"fluid_condition": {"type": "origins:empty"}
+					}
+				}
+			]
+		}
+	}
+}

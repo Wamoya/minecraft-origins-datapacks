@@ -1,0 +1,11 @@
+{
+	"powers": [
+		"magic:c_glow",
+		"magic:_requirement"
+	],
+	"icon": "minecraft:ender_eye",
+	"order": 10,
+	"impact": 1,
+	"name": "Conspicio",
+	"description": "You become conscious of everything around you for a brief amount of time."
+}

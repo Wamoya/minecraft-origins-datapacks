@@ -1,0 +1,11 @@
+{
+	"powers": [
+		"magic:c_horn",
+		"magic:_requirement"
+	],
+	"icon": "minecraft:goat_horn",
+	"order": 10,
+	"impact": 1,
+	"name": "Cornum",
+	"description": "You make a very loud noise."
+}

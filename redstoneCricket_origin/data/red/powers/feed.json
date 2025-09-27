@@ -1,0 +1,49 @@
+{
+	"name": "Reload",
+	"description": "Your only way of restore hunger is by standing on powered redstone dust.",
+	"type": "origins:multiple",
+	"no_food":{
+		"type":"origins:prevent_item_use",
+		"item_condition": {
+			"type":"origins:food"
+		}
+	},
+	"redstone":{
+		"type":"origins:action_over_time",
+		"interval":20,
+		"entity_action": {
+			"type":"origins:and",
+			"actions": [
+				{
+					"type":"origins:feed",
+					"food": 1,
+					"saturation": 1
+				},
+				{
+					"type":"origins:execute_command",
+					"command":"particle minecraft:end_rod ~ ~ ~ .1 .1 .1 .1 20 force",
+					"permission_level":4
+				}
+			]
+		},
+		"condition": {
+			"type":"origins:and",
+			"conditions":[
+				{
+					"type":"origins:in_block",
+					"block_condition": {
+						"type":"origins:block_state",
+						"property": "power",
+						"comparison": ">",
+						"compare_to": 0
+					}
+				},
+				{
+					"type":"origins:food_level",
+					"comparison":"<",
+					"compare_to":20
+				}
+			]
+		}
+	}
+}

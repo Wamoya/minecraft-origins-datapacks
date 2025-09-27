@@ -1,0 +1,11 @@
+{
+	"powers": [
+		"magic:c_craft",
+		"magic:_free"
+	],
+	"icon": "minecraft:crafting_table",
+	"order": 10,
+	"impact": 1,
+	"name": "Innectis",
+	"description": "You can use magic to craft things instead of having to use other mundane tools."
+}

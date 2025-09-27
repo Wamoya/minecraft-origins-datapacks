@@ -1,0 +1,11 @@
+{
+	"powers": [
+		"magic:c_inventory",
+		"magic:_free"
+	],
+	"icon": "minecraft:chest",
+	"order": 10,
+	"impact": 1,
+	"name": "Fornix",
+	"description": "You can use magic to access a small extradimensional space."
+}

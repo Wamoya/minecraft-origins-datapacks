@@ -1,0 +1,10 @@
+{
+	"powers": [
+		"magic:g_speed"
+	],
+	"icon": "minecraft:feather",
+	"order": 10,
+	"impact": 1,
+	"name": "Celerity",
+	"description": "This rune makes you faster than others."
+}

@@ -1,0 +1,42 @@
+{
+    "hidden":true,
+    "type":"origins:active_self",
+    "entity_action":{
+        "type": "origins:raycast",
+        "fluid_handling": "none",
+        "entity": false,
+        "block_action": {
+            "type": "origins:add_block",
+            "block": "minecraft:water"
+        }
+    },
+    "key": {
+        "key": "key.loadToolbarActivator"
+    },
+    "cooldown": 200,
+    "hud_render": {
+        "should_render": true,
+        "sprite_location": "origins:textures/gui/resource_bar.png",
+        "bar_index": 1
+    },
+    "condition": {
+        "type": "origins:and",
+        "conditions": [
+            {
+                "type":"origins:xp_levels",
+                "comparison": ">=",
+                "compare_to": 5
+            },
+            {
+                "type": "origins:raycast",
+                "block": true
+            },
+            {
+                "type": "origins:dimension",
+                "dimension": "minecraft:the_nether",
+                "inverted": true
+            }
+        ]
+        
+    }
+}

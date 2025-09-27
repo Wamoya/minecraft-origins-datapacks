@@ -1,0 +1,61 @@
+{
+	"type": "origins:multiple",
+	"active":{
+		"type":"origins:active_self",
+		"entity_action":{
+			"type":"origins:raycast",
+			"distance":15,
+			"entity":false,
+			"shape_type": "collider",
+			"fluid_handling": "none",
+			"command_along_ray": "execute as @e[tag=follow] if score @p follow_link = @s follow_link run tp @s ^ ^-1 ^",
+			"before_action": {
+				"type":"origins:delay",
+				"ticks":10,
+				"action":{
+					"type":"origins:and",
+					"actions":[
+						{
+							"type":"origins:execute_command",
+							"command":"execute at @e[tag=follow] if score @s follow_link = @s follow_link run tp @s ^ ^1 ^-0.5",
+							"permission_level":4
+						},
+						{
+							"type":"origins:execute_command",
+							"command":"particle minecraft:end_rod ~ ~1 ~ .5 .5 .5 .1 50 force",
+							"permission_level":4
+						},
+						{
+							"type":"origins:play_sound",
+							"sound": "minecraft:block.amethyst_block.place",
+							"volume": 1
+						}
+					]
+				}
+			}
+		},
+		"cooldown":60,
+		"key":{
+			"key": "key.origins.primary_active"
+		},
+		"hud_render": {
+			"bar_index":6
+		}
+	},
+	"attack_speed":{
+		"type":"origins:attribute",
+		"modifier": {
+			"attribute": "minecraft:generic.attack_speed",
+			"operation": "multiply_total",
+			"value": 0.2
+		}
+	},
+	"movement_speed":{
+		"type":"origins:attribute",
+		"modifier":{
+			"attribute":"minecraft:generic.movement_speed",
+			"operation":"multiply_total",
+			"value": 0.2
+		}
+	}
+}

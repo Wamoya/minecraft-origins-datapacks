@@ -1,0 +1,149 @@
+{
+	"name": "Shell",
+	"description": "Your strong shell makes you take damage in a different way than a normal human.",
+	"type": "origins:multiple",
+	"health_1": {
+		"type": "origins:attribute",
+		"modifier": {
+			"attribute": "minecraft:generic.max_health",
+			"operation": "addition",
+			"value": -10
+		}
+	},
+	"health_2": {
+		"type": "origins:conditioned_attribute",
+		"modifier": {
+			"attribute": "minecraft:generic.max_health",
+			"operation": "addition",
+			"value": 2
+		},
+		"condition": {
+			"type": "origins:advancement",
+			"advancement": "minecraft:story/enter_the_nether"
+		}
+	},
+	"health_3": {
+		"type": "origins:conditioned_attribute",
+		"modifier": {
+			"attribute": "minecraft:generic.max_health",
+			"operation": "addition",
+			"value": 2
+		},
+		"condition": {
+			"type": "origins:advancement",
+			"advancement": "minecraft:end/kill_dragon"
+		}
+	},
+	"health_4": {
+		"type": "origins:conditioned_attribute",
+		"modifier": {
+			"attribute": "minecraft:generic.max_health",
+			"operation": "addition",
+			"value": 2
+		},
+		"condition": {
+			"type": "origins:advancement",
+			"advancement": "minecraft:nether/summon_wither"
+		}
+	},
+	"health_5": {
+		"type": "origins:conditioned_attribute",
+		"modifier": {
+			"attribute": "minecraft:generic.max_health",
+			"operation": "addition",
+			"value": 2
+		},
+		"condition": {
+			"type": "origins:advancement",
+			"advancement": "minecraft:end/respawn_dragon"
+		}
+	},
+	"shell": {
+		"type": "origins:action_on_callback",
+		"entity_action_added": {
+			"type": "origins:execute_command",
+			"command": "item replace entity @s armor.head with minecraft:player_head{display:{Name:'{\"text\":\"The Knight\"}'},SkullOwner:{Id:[I;-510960203,-1952232347,-1338367472,73090165],Properties:{textures:[{Value:'eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDZiNjk3MWQ0YmJlMDk1ZTQ1YzQyNmI0ZGQyZjY3MzlkMmI2OGQ4Mzg5YjgxNDZiN2EyMjlmYzUyYmVhZTY4MyJ9fX0='}]}},Enchantments:[{id:'minecraft:binding_curse',lvl:1},{id:'minecraft:vanishing_curse',lvl:1}]}"
+		}
+	},
+	"stun": {
+		"type": "origins:action_when_damage_taken",
+		"entity_action": {
+			"type": "origins:apply_effect",
+			"effect": {
+				"effect": "minecraft:blindness",
+				"duration": 40,
+				"amplifier": 0
+			}
+		},
+		"cooldown": "30"
+	},
+	"restrict": {
+		"type": "origins:restrict_armor",
+		"head": {
+			"type": "origins:armor_value",
+			"comparison": ">",
+			"compare_to": 0
+		},
+		"chest": {
+			"type": "origins:armor_value",
+			"comparison": ">",
+			"compare_to": 0
+		},
+		"legs": {
+			"type": "origins:armor_value",
+			"comparison": ">",
+			"compare_to": 0
+		},
+		"feet": {
+			"type": "origins:armor_value",
+			"comparison": ">",
+			"compare_to": 0
+		}
+	},
+	"resistance_1": {
+		"type": "origins:modify_damage_taken",
+		"damage_condition": {
+			"type": "origins:amount",
+			"comparison": "<",
+			"compare_to": 8
+		},
+		"modifier": {
+			"operation": "set_total",
+			"value": 2
+		}
+	},
+	"resistance_2": {
+		"type": "origins:modify_damage_taken",
+		"damage_condition": {
+			"type": "origins:and",
+			"conditions": [
+			{
+				"type": "origins:amount",
+				"comparison": ">=",
+				"compare_to": 8
+			},
+			{
+				"type": "origins:amount",
+				"comparison": "<",
+				"compare_to": 20
+			}
+			]
+		},
+		"modifier": {
+			"operation": "set_total",
+			"value": 4
+		}
+	},
+	"resistance_3": {
+		"type": "origins:modify_damage_taken",
+		"damage_condition": {
+			"type": "origins:amount",
+			"comparison": ">=",
+			"compare_to": 20
+		},
+		"modifier": {
+			"operation": "set_total",
+			"value": 16
+		}
+	}
+}

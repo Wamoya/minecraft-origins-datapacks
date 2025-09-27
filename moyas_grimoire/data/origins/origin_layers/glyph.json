@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "order": 1,
+  "name":"Glyph",
+  "origins": [
+    "magic:g_armor",
+    "magic:g_speed",
+    "magic:g_spy",
+    "magic:g_plague",
+    "magic:g_xp",
+    "magic:g_sage",
+
+    "magic:g_none"
+  ]
+}

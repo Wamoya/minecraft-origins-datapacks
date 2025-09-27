@@ -1,0 +1,50 @@
+{
+	"name": "Cheat death",
+	"description": "If you die with enough XP levels, you will lose them instead of dying.",
+	"type": "origins:prevent_death",
+	"condition": {
+		"type": "origins:xp_levels",
+		"comparison": ">=",
+		"compare_to": 30
+	},
+    "entity_action": {
+        "type": "origins:and",
+        "actions": [
+			{
+				"type": "origins:execute_command",
+				"command": "playsound minecraft:item.totem.use player @a[distance=..9]"
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "xp set @s 10 levels"
+			},
+            {
+                "type": "origins:clear_effect"
+            },
+            {
+                "type": "origins:apply_effect",
+                "effects": [
+                    {
+                        "effect": "minecraft:regeneration",
+                        "amplifier": 1,
+                        "duration": 900
+                    },
+                    {
+                        "effect": "minecraft:fire_resistance",
+                        "duration": 100
+                    },
+                    {
+                        "effect": "minecraft:absorption",
+                        "amplifier": 1,
+                        "duration": 100
+                    },
+					{
+						"effect": "minecraft:blindness",
+						"amplifier": 0,
+						"duration": 150
+					}
+                ]
+            }
+        ]
+    }
+}

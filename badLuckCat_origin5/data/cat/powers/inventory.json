@@ -1,0 +1,26 @@
+{
+	"name": "[L.T.A] Bag of holding",
+	"description": "You have access to an extra inventory that won't drop on death.",
+	"type": "origins:multiple",
+	"bag_of_holding": {
+		"type": "origins:inventory",
+		"title": "Bag of holding",
+		"key": {
+			"key": "key.loadToolbarActivator"
+		}
+	},
+	"sound": {
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "playsound minecraft:item.armor.equip_leather player @a[distance=..10] ~ ~ ~ 1 1 1"
+		},
+		"cooldown": 0,
+		"hud_render": {
+			"should_render": false
+		},
+		"key": {
+			"key": "key.loadToolbarActivator"
+		}
+	}
+}

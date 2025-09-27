@@ -1,0 +1,78 @@
+{
+	"type": "origins:multiple",
+	"name": "Freestyle",
+	"description": "While freestyling, §3you don't need to keep the tempo up!",
+	"badges": [
+		{
+			"type": "origins:keybind",
+			"sprite": "origins:textures/gui/badge/active.png",
+			"text": "[Active Power (Primary)]"
+		},
+		{
+			"type": "origins:tooltip",
+			"sprite": "origins:textures/gui/badge/info.png",
+			"text": "§3For the next §o3s,§r §nstreak will not be consumed.§r\n§oThen you will §c§olose all your streak."
+		}
+	],
+	"resource": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"hud_render": {"should_render": false},
+		"min_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:change_resource",
+					"resource": "*:streak_resource",
+					"change": -3
+				},
+				{
+					"type": "origins:play_sound",
+					"sound": "minecraft:block.beacon.deactivate",
+					"volume": 0.5,
+					"pitch": 0
+				}
+			]
+		},
+		"max_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:delay",
+					"ticks": 60,
+					"action": {
+						"type": "origins:change_resource",
+						"resource": "*:*_resource",
+						"change": -1
+					}
+				},
+				{
+					"type": "origins:play_sound",
+					"sound": "minecraft:block.beacon.activate",
+					"volume": 0.5,
+					"pitch": 2
+				}
+			]
+		}
+	},
+	"res_up": {
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "*:*_resource",
+			"change": 1
+		},
+		"key": {
+			"key": "key.origins.primary_active"
+		},
+		"cooldown": 1,
+		"hud_render": {"should_render": false},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:streak_resource",
+			"comparison": "==",
+			"compare_to": 3
+		}
+	}
+}

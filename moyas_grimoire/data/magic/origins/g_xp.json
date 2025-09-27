@@ -1,0 +1,10 @@
+{
+	"powers": [
+		"magic:g_xp"
+	],
+	"icon": "minecraft:book",
+	"order": 10,
+	"impact": 1,
+	"name": "Wisdom",
+	"description": "You know how to get the most out of xp points."
+}

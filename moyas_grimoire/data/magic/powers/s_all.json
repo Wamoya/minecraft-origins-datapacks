@@ -1,0 +1,214 @@
+{
+    "hidden":true,
+    "type":"origins:multiple",
+    "cd1": {
+        "type": "origins:cooldown",
+        "cooldown": 100,
+        "hud_render": {
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+            "bar_index": 20
+        }
+    },
+    "active1": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "*:*_cd1"
+                },
+                {
+                    "type": "origins:choice",
+                    "actions": [
+                        {
+                            "element": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "power grant @s magic:s_dash",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "title @s actionbar \"INCITUS\"",
+                                        "permission_level": 4
+                                    }
+                                ]
+                            },
+                            "weight": 1
+                        },
+                        {
+                            "element": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "power grant @s magic:s_missile",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "title @s actionbar \"MAGIC MISSILE\"",
+                                        "permission_level": 4
+                                    }
+                                ]
+                            },
+                            "weight": 1
+                        },
+                        {
+                            "element": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "power grant @s magic:s_rocket",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "title @s actionbar \"FIREBALL\"",
+                                        "permission_level": 4
+                                    }
+                                ]
+                            },
+                            "weight": 1
+                        },
+                        {
+                            "element": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "power grant @s magic:s_speed",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "title @s actionbar \"CELERO\"",
+                                        "permission_level": 4
+                                    }
+                                ]
+                            },
+                            "weight": 1
+                        },
+                        {
+                            "element": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "power grant @s magic:s_boom",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "title @s actionbar \"ANIHILATE\"",
+                                        "permission_level": 4
+                                    }
+                                ]
+                            },
+                            "weight": 1
+                        }
+                    ]
+                }
+            ]
+        },
+        "key": {"key": "key.origins.secondary_active"},
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_cd1",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_cd2",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:xp_levels",
+                    "comparison": ">=",
+                    "compare_to": 5
+                }
+            ]
+        }
+    },
+    "cd2": {
+        "type": "origins:cooldown",
+        "cooldown": 200,
+        "hud_render": {
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+            "bar_index": 9
+        }
+    },
+    "active2": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "*:*_cd2"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_cd1",
+                    "change": -100
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 1,
+                    "action":{
+                        "type": "origins:execute_command",
+                        "command": "function magic:remove",
+                        "permission_level": 4
+                    }
+                }
+            ]
+        },
+        "key": {"key": "key.origins.secondary_active"},
+        "condition": {
+            "type": "origins:and",
+            "conditions":[
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_cd1",
+                    "comparison": "!=",
+                    "compare_to": 100
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_cd2",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:xp_levels",
+                    "comparison": ">=",
+                    "compare_to": 5
+                }
+            ]
+        }
+    },
+    "limit": {
+        "type": "origins:action_over_time",
+        "interval": 20,
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "function magic:remove",
+            "permission_level": 4
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_cd1",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    }
+}
