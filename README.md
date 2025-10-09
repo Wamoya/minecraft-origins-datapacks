@@ -1,5 +1,5 @@
 # Origins datapacks for Minecraft
-> This repo contains several folders. Each of them are an individual minecraft datapack, designed and written by me, that you can use alongside the Minecraft Origins mod.
+> This repo contains several folders. Each of them are an individual minecraft datapack, designed and written by me, that you can use alongside the Minecraft [Origins](https://github.com/apace100/origins-fabric) mod.
 
 ## Index
 - [Origins](https://github.com/Wamoya/minecraft-origins-datapacks?tab=readme-ov-file#origins)
